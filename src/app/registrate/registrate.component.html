@@ -1,0 +1,35 @@
+ <!-- logowanie  -->
+<!-- <form class="navbar-form">
+  <button type="button" class="btn btn-default" (click)="authService.login()" *ngIf="!authService.logged">Zaloguj</button>
+  <button type="button" class="btn btn-default" (click)="authService.logout()" *ngIf="authService.logged">Wyloguj</button>
+</form> -->
+<div class="box-reg">
+
+    <div class="logo"><img src="assets/logo.png" alt=""></div>
+    
+<form [formGroup]="form" (ngSubmit)="register(form)">
+  <mat-form-field>
+      <input matInput max-length="15" formControlName="firstName" placeholder="First name" #nameInput>
+      <mat-error>Name is required</mat-error>
+      <mat-error *ngIf="form.controls['firstName'].errors?.['minlength']">
+        Please enter less than 15 characters
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput formControlName="lastName" placeholder="Last name">
+      <mat-error>Name is required</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+      <input matInput type="email" formControlName="email" placeholder="E-mail">
+    <mat-error *ngIf="form.controls['email'].errors?.['required']">Email is required</mat-error>
+    <mat-error *ngIf="form.controls['email'].errors?.['pattern']">Please enter valid email</mat-error>
+</mat-form-field>
+<mat-form-field>
+      <input matInput type="password" formControlName="password" placeholder="Password">
+                    <mat-error *ngIf="form.controls['password'].errors?.['pattern']">
+                        Please enter password contains at least one: number, lowercase and uppercase character
+                    </mat-error>
+  </mat-form-field>
+    <div class="col-md-12" >
+      <button mat-raised-button type="submit" color="primary" >Register</button>
+    </div>
