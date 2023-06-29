@@ -1,2 +1,32 @@
-<button routerLink="settings">Settings</button>
-<p>innnneeeeeeeee rzeczy</p>
+<div class="nav-station"><div class="col-md-10 col-10 logo"><img src="assets/logo.png" alt="logo"></div>
+<a class="col-md-2 col-2 settings" routerLink="/main-page/settings"> <img src="assets/settings.png" alt="settings"></a></div>
+<div class="wrapper">
+    <a *ngFor = "let name of (friendsList$ |async)" class="friend">
+     <!-- to powinno być w a ngFor: -->
+    <!-- (click)="navigateToDetails(name.id)" -->
+        <a>
+        <div class="photo col-md-8 col-8" routerLink="/main-page/details/{{name.id}}">
+        <img class='avatar'[src]= getSanitizeURL(name.url)/>
+    </div>
+    <div class="info col-md-1 col-1">
+        <div class="short col-md-6 col-6">
+            <p>{{name.name}}, {{name.age}}</p>
+        </div>
+        <div class="short col-md-6 col-6">
+            <p>{{name.city}}</p>
+        </div>
+    </div>
+    <div class="choice col-md-3 col-3">
+        <div class="like col-md-6 col-6" (click)="likeProfile()">
+            <img src="assets/heart.png" alt="like">
+        </div>
+        <div class="dislike col-md-6 col-6">
+            <img src="assets/close.png" alt="dislike">
+        </div>
+</div>
+</a>
+</a>
+</div>
+    <!-- {{ friendsList$ | async  | json }} -->
+    <!-- {{ name.url }} -->
+

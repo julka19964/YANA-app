@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+<!-- jednocześnie to ma być zakładka ustawienia profilu do której się przechodzi w dowolnym momencie -->
+<div class="col-md-6 form-wrapper">
+    <form [formGroup]="form">
+        <label>Your name:</label>
+        <mat-form-field>
+            <input matInput formControlName= "firstName">
+        </mat-form-field>
+        <label>Your surname:</label>
+        <mat-form-field>
+            <input matInput formControlName= "lastName" placeholder="Last name">
+        </mat-form-field>
+        <label>E-mail:</label>
+        <mat-form-field>
+            <input matInput type="email" formControlName="email">
+      </mat-form-field>
+      <label>Age:</label>
+      <mat-form-field>
+        <input matInput type="number" formControlName="age">
+    </mat-form-field>
+    <label>City:</label>
+    <mat-form-field>
+        <input matInput type="text" formControlName="city">
+    </mat-form-field>
+    <label>Favourite quote:</label>
+    <mat-form-field>
+        <input matInput type="text" formControlName="favQuote">
+    </mat-form-field>
+    <label>Favourite song:</label>
+    <mat-form-field>
+        <input matInput type="text" formControlName="favSong">
+    </mat-form-field>
+    <label>Favourite book:</label>
+    <mat-form-field>
+        <input matInput type="text" formControlName="favBook">
+    </mat-form-field>
+</form>
+</div>
+<div class="col-md-6 profile-photo">
+<!-- <button type="button" (click)="uploadFile()">Upload</button> -->
+<ng-container *ngIf="(userImage$ | async) as image">
+<img [src]="image" alt="">
+</ng-container>
+<form [formGroup]="form" (ngSubmit)=" choose(form)"><h2>Choose by:</h2>
+    <label for="">Age:</label>
+    <mat-slider  min="18" max="98" step="1" value="30" discrete [displayWith]="formatLabel">
+        <input matSliderThumb formControlName= "age">
+      </mat-slider>
+    <label for="">Gender:</label>
+    <mat-button-toggle-group #group="matButtonToggleGroup" aria-label="Trade View" multiple="" formControlName= "gender"
+    >
+        <mat-button-toggle  value="M">Male</mat-button-toggle>
+        <mat-button-toggle  value="F" >Female</mat-button-toggle>
+      </mat-button-toggle-group>
+
+    <button mat-raised-button class="search" color="primary" type="submit" >Display profiles</button>
+    </form>
+</div>
+</div>
+      <div class="col-md-6 save">
+        <button mat-raised-button type="submit" color="primary" routerLink="main-page">Save</button>
+      </div>
+</div>

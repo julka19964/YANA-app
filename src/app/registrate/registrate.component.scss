@@ -1,0 +1,22 @@
+.box-reg {
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.col-md-3, .col-md-12 {
+    display: flex;
+    justify-content: center;
+    margin-top:30px;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+}
+ 

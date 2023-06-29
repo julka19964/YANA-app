@@ -1,0 +1,16 @@
+<div>You have match with
+<ng-container *ngIf="(friend$ | async) as name">
+    <pre>
+        <!-- {{ name | json }} -->
+        <!-- <a *ngFor = "let detail of friend$ | async"> -->
+            <div class="photo col-md-8 col-8" >
+            <img [src]= getSanitizeURL(name.url)/>
+        </div>
+        <div class="wrap col-md-4 col-4">
+                <p>{{name.name}}, {{name.age}}</p>
+        </div>
+    <!-- </a> -->
+
+    </pre>
+</ng-container>
+</div>

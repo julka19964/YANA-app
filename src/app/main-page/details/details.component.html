@@ -1,0 +1,40 @@
+<!-- <div class="wrapper">
+        
+        <div class="short col-md-6 col-6">
+            <ng-container *ngIf="(id|async) as name">
+                <div class="photo col-md-8 col-8">
+                    <img [src]= getSanitizeURL(name.url)/>
+                    </div>
+                <p>{{name.city}}</p>
+                <p>{{name.favQuote}}</p>
+                <p>{{name.favSong}}</p>
+                <p>{{name.favBook}}</p>
+
+            </ng-container>
+            
+        </div>
+    </div> -->
+
+
+<ng-container *ngIf="(friend$ | async) as name">
+    <pre>
+        <!-- {{ name | json }} -->
+        <!-- <a *ngFor = "let detail of friend$ | async"> -->
+            <div class="photo col-md-8 col-8" >
+            <img [src]= getSanitizeURL(name.url)/>
+        </div>
+        <div class="wrap col-md-4 col-4">
+            <div class="short col-md-6 col-6">
+                <p>{{name.name}}, {{name.age}}</p>
+            </div>
+            <div class="short col-md-6 col-6">
+                <p>{{name.city}}</p>
+                <p>{{name.favQuote }}</p>
+                <p>{{name.favSong}}</p>
+                <p>{{name.favBook}}</p>
+            </div>
+        </div>
+    <!-- </a> -->
+
+    </pre>
+</ng-container>
